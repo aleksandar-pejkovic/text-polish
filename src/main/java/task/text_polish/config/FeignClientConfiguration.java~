@@ -1,0 +1,4 @@
+package task.text_polish.config;
+
+public class FeignClientConfiguration {
+}

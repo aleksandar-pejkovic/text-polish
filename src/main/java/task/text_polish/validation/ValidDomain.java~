@@ -1,0 +1,4 @@
+package task.text_polish.validation;
+
+public interface ValidDomain {
+}

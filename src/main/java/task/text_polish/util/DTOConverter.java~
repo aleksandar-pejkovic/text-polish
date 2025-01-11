@@ -1,0 +1,27 @@
+package task.text_polish.util;
+
+import task.text_polish.dto.PolishRequestDTO;
+import task.text_polish.dto.PolishResponseDTO;
+import task.text_polish.dto.ProofreadRequestDTO;
+import task.text_polish.dto.ProofreadResponseDTO;
+
+public final class DTOConverter {
+
+    private DTOConverter() {
+    }
+
+    public static ProofreadRequestDTO toProofreadRequest(PolishRequestDTO requestDTO) {
+        return new ProofreadRequestDTO(
+                requestDTO.getLanguage(),
+                requestDTO.getDomain(),
+                requestDTO.getContent()
+        );
+    }
+
+    public static PolishResponseDTO toPolishResponse(ProofreadResponseDTO responseDTO, double similarityScore) {
+        return new PolishResponseDTO(
+                responseDTO.getProofreadContent(),
+                similarityScore
+        );
+    }
+}

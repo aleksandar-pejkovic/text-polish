@@ -1,0 +1,6 @@
+package task.text_polish.validation;
+
+import jakarta.validation.ConstraintValidator;
+
+public class LanguageValidator implements ConstraintValidator {
+}

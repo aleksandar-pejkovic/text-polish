@@ -1,0 +1,24 @@
+package task.text_polish.validation;
+
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+public class WordCountValidator implements ConstraintValidator<WordCount, String> {
+
+    private int max;
+
+    @Override
+    public void initialize(WordCount constraintAnnotation) {
+        this.max = constraintAnnotation.max();
+    }
+
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        if (value == null) {
+            return true; // @NotNull će obraditi null vrednosti
+        }
+        // Podeli tekst po belinama da prebroji reči
+        int wordCount = value.trim().split("\\s+").length;
+        return wordCount <= max;
+    }
+}
